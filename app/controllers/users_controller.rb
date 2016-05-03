@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def search
-    @users = User.search(param[:search_param])
+    @users = User.search(params[:search_param])
     if @users
       @users = current_user.except_current_user(@users)
       render partial: "friends/lookup"
@@ -23,9 +23,11 @@ class UsersController < ApplicationController
     @friend = User.find(params[:friend])
     current_user.friendships.build(friend_id: @friend.id)
     if current_user.save
-      redirect_to my_friends_path, flash[:notice] = "Friend was added!"
+      redirect_to my_friends_path
+      flash[:notice] = "Friend was added!"
     else
-      redirect_to my_friends_path, flash[:error] = "Something went wrong when adding friend"
+      redirect_to my_friends_path
+      flash[:error] = "Something went wrong when adding friend"
     end
   end
 end

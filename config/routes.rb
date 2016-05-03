@@ -11,9 +11,9 @@ Rails.application.routes.draw do
   get 'my_portfolio', to: 'users#my_portfolio'
   get 'search_stocks', to: 'stocks#search'
   get 'my_friends', to: 'users#my_friends'
-  get 'search_friends', to: 'user#search'
+  get 'search_friends', to: 'users#search'
 
   # POST
-  post 'add_friend', to: 'user#add_friend'
+  post 'add_friend', to: 'users#add_friend'
 
 end

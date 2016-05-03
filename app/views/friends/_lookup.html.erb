@@ -22,8 +22,8 @@
           <tbody>
             <% @users.each do |user| %>
             <tr>
-              <td><strong>Name: </strong><%= @friend.full_name %></td>
-              <td><strong>Email: </strong><%= @friend.email %></td>
+              <td><strong>Name: </strong><%= user.full_name %></td>
+              <td><strong>Email: </strong><%= user.email %></td>
               <td><strong>Profile: </strong><%= link_to "View", user_path(user), class: 'btn btn-xs btn-success add-stock-btn' %>
                 <% if current_user.not_friends_with?(user.id) %>
                   <%= link_to "Add", add_friend_path(user: current_user, friend: user),
